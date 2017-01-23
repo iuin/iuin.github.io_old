@@ -7,6 +7,13 @@
             font-family: digit;
             src: url('digital-7_mono.ttf') format("truetype");
         }
+		.tishiContent {
+			border: 1px solid #FFF;
+			font-size: 18px;
+			padding: 5px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
     </style>
     <link href="./javascripts/default.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="./javascripts/jquery.js"></script>
@@ -19,31 +26,34 @@
         <div id="content" style="width: 1110px; height: 625px; margin-top: 52px; margin-left: 245px;">
             <div id="code" style="margin-top: 112.5px;">
                 <span class="comments">/**</span><br>
-                <span class="space"><span class="comments">*因为我是一个程序员,</span><br>
-                <span class="space"><span class="comments">*所以我想写一些代码来显示我对你的爱.</span><br>
+                <span class="space"><span class="comments">*最愚蠢的暗恋就是感动了自己，却怪别人没有领悟自己的心意.</span><br>
+                <span class="space"><span class="comments">*自己陪自己演了无数内心戏，到最后却说不出一句"我喜欢你".</span><br>
+				<span class="space"><span class="comments">*我是一个程序员,</span><br>
+                <span class="space"><span class="comments">*所以我想用程序员的方式来表达</span><br>
                 <span class="space"><span class="comments">*/</span><br>
                 Boy i = <span class="keyword">new</span> Boy(<span class="string">"张坤"</span>);<br>
                 Girl u = <span class="keyword">new</span> Girl(<span class="string">"刘琴"</span>);<br>
-                <span class="comments">// 我不想一直把喜欢你藏在心里了，喜欢一个人就该说出来，</span><br>
+                <span class="comments">// 如果一个人不爱你，那么，这个人，不是我。</span><br>
                 i.love(u);<br>
 				<span class="keyword">new Thread(new Runnable() {</span><br>
-				<span class="keyword">	@Override</span><br>
-				<span class="keyword">	public void run() {</span><br>
-				<span class="keyword">		i.friendWith(u);</span><br>
-				<span class="keyword">		i.takeCareOf(u);</span><br>
-				<span class="keyword">	}</span><br>
+				<span class="placeholder">	@Override<br>
+				<span class="placeholder"><span class="keyword">public void run() {</span><br>
+				<span class="placeholder"><span class="placeholder"><span class="keyword">while (true) {</span><br>
+				<span class="placeholder"><span class="placeholder"><span class="placeholder">		i.friendWith(u);<br>
+				<span class="placeholder"><span class="placeholder"><span class="placeholder">		i.takeCareOf(u);<br>
+				<span class="placeholder"><span class="placeholder"><span class="keyword">}</span><br>
+				<span class="placeholder"><span class="keyword">}</span><br>
 				<span class="keyword">}).start();</span><br>
-                <span class="comments">// 我会一直在等你</span><br>
+                <span class="comments">// 下面需要你返回一个参数</span><br>
                 <span class="keyword">boolean</span> isAccept = <span class="keyword">false</span>;<br>
-                <span class="keyword">while</span> (isAccept) {<br>
-                <span class="placeholder">i.waitFor(u);<br>
-                <span class="placeholder">isAccept = u.thinkOver();<br>
-                }<br>
-                <span class="comments">// 如果你接受我，我们将会生活幸福快乐的日子。</span><br>
+				<span class="keyword">do{</span> <br>
+				<span class="placeholder">	i.waitFor(u);<br>
+				<span class="placeholder">	isAccept = u.thinkOver();<br>
+				<span class="keyword">}while</span>(!isAccept);<br>
+                <span class="comments">// 不管你是否答应我，我依然会对你好，尽我所能让你开心</span><br>
                 u.accept(i);<br>
                 i.liveHappilyWith(u);<br>
-
-
+				<span class="comments">// PS:写完感觉好羞耻...(手动捂脸)(づ￣3￣)づ╭❤～</span><br>
             </span></span></span></span></span></span></span>_</div>
             <div id="loveHeart">
                 <canvas id="garden" width="670" height="625"></canvas>
@@ -59,13 +69,15 @@ google_ad_height = 50;
 //-->
 </script>
 </center>
-                        琴
+                        
                         <div id="elapseClock" style="display:none"></div>
-                        <a href="index3.html" id="accept">如果你接受我，请戳这里</a>
+						<div align="center" class="tishi">
+						<span id="accept" class="tishiContent">做我女朋友吧，同意点这里→_→</span>
+	</div>
                     </div>
                     <div id="loveu" style="display: block;">
-                        爱你，直到永永远远。<br>
-                        <div class="signature">- Love</div>
+                        Love you forever。<br>
+                        <div class="signature">- 我</div>
                     </div>
                 </div>
             </div>
@@ -86,19 +98,24 @@ google_ad_height = 50;
             $("#copyright").css("bottom", "10px");
             document.execCommand("stop");
         } else {
+			$("#accept").css("display","none");
+			$("#loveu").css("display","none");
             setTimeout(function () {
+				$("#accept").css("display","block");
                 adjustWordsPosition();
                 startHeartAnimation();
-            }, 10000);
+            }, 35000);
             
             $("#accept").click(function(){
-                $(this).hide();
+                //window.location.href="index3.html";
+				$(this).css("display","none");
                 $("#elapseClock").show();
                 var together = new Date();
                 timeElapse(together);
                 setInterval(function () {
                     timeElapse(together);
                 }, 500);
+				
             })
             adjustCodePosition();
             $("#code").typewriter();
