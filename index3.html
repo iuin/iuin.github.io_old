@@ -25,7 +25,7 @@ body {
 body {
     color: #FFF;
     padding: 10px;
-    background: #FFF url(bg.png) no-repeat fixed top center;
+    /* background: #FFF url(bg.png) no-repeat fixed top center;*/
     margin-left: 0px;
     margin-top: 0px;
     margin-right: 0px;
@@ -102,22 +102,32 @@ $(document).ready(function(e) {
         return str;
     }
 });
+
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $('#test').load('http://106.14.145.86:8000/');
+  })
+})
+
 </script>
 </head>
 
 <body>
+<!--
 <center>
 <div align="left" class="content"><span id="txt"></span><span id="guang"></span>
 <span></span>
 </div>
 </center>
 
-<!--下面是浮动的桃心-->
+下面是浮动的桃心
 <div id="bubbles" style="visibility:hidden">
 <img src="./javascripts/1.png">
 <img src="./javascripts/2.png">
 <img src="./javascripts/1.png">
 </div>
+-->
 <!---->
-
+<h3 id="test">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h3>
+<button id="btn1" type="button">获得外部的内容</button>
 </body></html>
